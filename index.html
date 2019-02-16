@@ -88,7 +88,31 @@
       </div>
       <!--  End Modal -->
     </div>
-    <div id='map' style='height:500px;width:100%'></div>
+    <div class='map-container use-all-space'>
+      <div id='map' style='height:500px;width:100%'></div>
+      <div>
+          <label for='trafficStyle'>
+              <span>Traffic flow style</span>
+              <select id='trafficStyle' name='trafficStyle' autocomplete='off'>
+                  <option value='absolute'>absolute</option>
+                  <option value='relative' selected='selected'>relative</option>
+                  <option value='relative-delay'>relative-delay</option>
+              </select>
+          </label>
+          <label for='baseLayer'>
+              <span>Base Layer</span>
+              <select id='baseLayer' name='baseLayer'></select>
+          </label>
+          <label for='trafficLayer'>
+              <span>Traffic Layer</span>
+              <select id='trafficLayer' name='baseLayer'>
+                  <option value='vectorTrafficFlow'>Vector</option>
+                  <option value='trafficFlow'>Raster</option>
+              </select>
+          </label>
+      </div>
+  </div>
+  
         <script>
 	    tomtom.setProductInfo('apna-raasta', 'v1.0');
 var trafficFlowOptions = {
@@ -106,7 +130,7 @@ var map = tomtom.map('map', {
     source: ['raster', 'vector'],
     basePath: 'https://api.tomtom.com/maps-sdk-js/4.28.49/examples/sdk',
     vectorTrafficFlow: vectorTrafficFlowOptions,
-    center: [51.50276, -0.12634],
+    center: [12.981532, 77.645714],
     zoom: 15
 });
 var languageLabel = L.DomUtil.create('label');
